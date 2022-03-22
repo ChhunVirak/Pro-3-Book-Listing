@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
-      title: 'Flutter Demo',
+      title: 'Book Listing',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),

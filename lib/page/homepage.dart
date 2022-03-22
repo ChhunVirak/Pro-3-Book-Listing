@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsRouter(
+    return AutoTabsScaffold(
       routes: const [
         BookRouter(),
         ProfileRouter(),
@@ -19,11 +19,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
             body: FadeTransition(
               opacity: animation,
-              // the passed child is techinaclly our animated selected-tab page
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: child,
-              ),
+              child: child,
             ),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: tabsRouter.activeIndex,
