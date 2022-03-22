@@ -29,35 +29,50 @@ class _BookState extends State<Book> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                children: menuList
-                    .asMap()
-                    .entries
-                    .map(
-                      (e) => GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            tabsRouter.setActiveIndex(e.key);
-                          });
-                        },
-                        child: Card(
-                          elevation: tabsRouter.activeIndex == e.key ? 5 : 1,
-                          child: Container(
-                            width: 200,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 20),
-                            child: Text(
-                              e.value,
-                              style: TextStyle(
-                                  color: tabsRouter.activeIndex == e.key
-                                      ? Colors.teal
-                                      : Colors.black,
-                                  fontWeight: FontWeight.w900),
+                children: [
+                  Column(
+                    children: menuList
+                        .asMap()
+                        .entries
+                        .map(
+                          (e) => GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                tabsRouter.setActiveIndex(e.key);
+                              });
+                            },
+                            child: Card(
+                              elevation:
+                                  tabsRouter.activeIndex == e.key ? 5 : 1,
+                              child: Container(
+                                width: 200,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 20),
+                                child: Text(
+                                  e.value,
+                                  style: TextStyle(
+                                      color: tabsRouter.activeIndex == e.key
+                                          ? Colors.teal
+                                          : Colors.black,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    )
-                    .toList(),
+                        )
+                        .toList(),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      debugPrint("Workkkkk");
+                      context.navigateTo(
+                        const ProfileRouter(children: [SettingRouter()]),
+                      );
+                      //context.router.push(const SettingRouter());
+                    },
+                    child: const Icon(Icons.settings),
+                  )
+                ],
               ),
               const SizedBox(width: 20),
               Expanded(

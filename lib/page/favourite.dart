@@ -6,7 +6,7 @@ class FavouritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("Fav"),
+      child: Text("Favourite Page"),
     );
   }
 }

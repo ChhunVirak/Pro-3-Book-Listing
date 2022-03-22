@@ -17,24 +17,25 @@ class HomePage extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
 
         return Scaffold(
-            body: FadeTransition(
-              opacity: animation,
-              child: child,
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: tabsRouter.activeIndex,
-              onTap: (index) {
-                tabsRouter.setActiveIndex(index);
-              },
-              items: const [
-                BottomNavigationBarItem(
-                    label: 'Book', icon: Icon(Icons.book_rounded)),
-                BottomNavigationBarItem(
-                    label: 'Profile', icon: Icon(Icons.face_rounded)),
-                BottomNavigationBarItem(
-                    label: 'Favourite', icon: Icon(Icons.favorite)),
-              ],
-            ));
+          body: FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            onTap: (index) {
+              tabsRouter.setActiveIndex(index);
+            },
+            items: const [
+              BottomNavigationBarItem(
+                  label: 'Book', icon: Icon(Icons.book_rounded)),
+              BottomNavigationBarItem(
+                  label: 'Profile', icon: Icon(Icons.face_rounded)),
+              BottomNavigationBarItem(
+                  label: 'Favourite', icon: Icon(Icons.favorite)),
+            ],
+          ),
+        );
       },
     );
   }
