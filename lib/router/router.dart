@@ -18,6 +18,7 @@ import '../page/homepage.dart';
       page: HomePage,
       children: <AutoRoute>[
         AutoRoute(
+          initial: true,
           path: "book",
           name: "BookRouter",
           page: EmptyRouterPage,
@@ -37,6 +38,7 @@ import '../page/homepage.dart';
                   page: MostReading,
                   name: "MostRead",
                 ),
+                RedirectRoute(path: "*", redirectTo: "popular")
               ],
             ),
             AutoRoute(
@@ -47,10 +49,10 @@ import '../page/homepage.dart';
                 path: "most-reading/:id",
                 page: BookDetails,
                 name: "MostReadBookDetail"),
+            RedirectRoute(path: "*", redirectTo: "")
           ],
         ),
         AutoRoute(
-          initial: true,
           path: "profile",
           name: "ProfileRouter",
           page: EmptyRouterPage,
@@ -59,13 +61,13 @@ import '../page/homepage.dart';
               path: '',
               page: Profile,
               name: "ProfileRoute",
-              initial: true,
             ),
             AutoRoute(
               path: 'setting',
               page: Setting,
               name: 'SettingRouter',
             ),
+            RedirectRoute(path: "*", redirectTo: "")
           ],
         ),
         AutoRoute(
@@ -75,7 +77,7 @@ import '../page/homepage.dart';
         ),
       ],
     ),
-    RedirectRoute(path: "*", redirectTo: "")
+    RedirectRoute(path: "*", redirectTo: "/")
   ],
 )
 class $AppRouter {}

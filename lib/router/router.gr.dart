@@ -92,7 +92,7 @@ class AppRouter extends _i2.RootStackRouter {
           _i2.RouteConfig('#redirect',
               path: '',
               parent: HomePageRouter.name,
-              redirectTo: 'profile',
+              redirectTo: 'book',
               fullMatch: true),
           _i2.RouteConfig(BookRouter.name,
               path: 'book',
@@ -110,12 +110,22 @@ class AppRouter extends _i2.RootStackRouter {
                       _i2.RouteConfig(PopularBook.name,
                           path: 'popular', parent: Book.name),
                       _i2.RouteConfig(MostRead.name,
-                          path: 'most-reading', parent: Book.name)
+                          path: 'most-reading', parent: Book.name),
+                      _i2.RouteConfig('*#redirect',
+                          path: '*',
+                          parent: Book.name,
+                          redirectTo: 'popular',
+                          fullMatch: true)
                     ]),
                 _i2.RouteConfig(PopularBookDetail.name,
                     path: 'popular/:id', parent: BookRouter.name),
                 _i2.RouteConfig(MostReadBookDetail.name,
-                    path: 'most-reading/:id', parent: BookRouter.name)
+                    path: 'most-reading/:id', parent: BookRouter.name),
+                _i2.RouteConfig('*#redirect',
+                    path: '*',
+                    parent: BookRouter.name,
+                    redirectTo: '',
+                    fullMatch: true)
               ]),
           _i2.RouteConfig(ProfileRouter.name,
               path: 'profile',
@@ -124,13 +134,18 @@ class AppRouter extends _i2.RootStackRouter {
                 _i2.RouteConfig(ProfileRoute.name,
                     path: '', parent: ProfileRouter.name),
                 _i2.RouteConfig(SettingRouter.name,
-                    path: 'setting', parent: ProfileRouter.name)
+                    path: 'setting', parent: ProfileRouter.name),
+                _i2.RouteConfig('*#redirect',
+                    path: '*',
+                    parent: ProfileRouter.name,
+                    redirectTo: '',
+                    fullMatch: true)
               ]),
           _i2.RouteConfig(FavouriteRouter.name,
               path: 'favourite', parent: HomePageRouter.name)
         ]),
         _i2.RouteConfig('*#redirect',
-            path: '*', redirectTo: '', fullMatch: true)
+            path: '*', redirectTo: '/', fullMatch: true)
       ];
 }
 

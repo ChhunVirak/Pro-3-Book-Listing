@@ -43,7 +43,7 @@ class _BookState extends State<Book> {
                             },
                             child: Card(
                               elevation:
-                                  tabsRouter.activeIndex == e.key ? 5 : 1,
+                                  tabsRouter.activeIndex == e.key ? 5 : 2,
                               child: Container(
                                 width: 200,
                                 padding: const EdgeInsets.symmetric(
@@ -64,11 +64,9 @@ class _BookState extends State<Book> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      debugPrint("Workkkkk");
                       context.navigateTo(
                         const ProfileRouter(children: [SettingRouter()]),
                       );
-                      //context.router.push(const SettingRouter());
                     },
                     child: const Icon(Icons.settings),
                   )
@@ -79,8 +77,6 @@ class _BookState extends State<Book> {
                 child: Card(
                   child: Container(
                     margin: const EdgeInsets.all(20),
-                    // width: 200,
-                    // height: 300,
                     child: FadeTransition(
                       opacity: animation,
                       child: child,

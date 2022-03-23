@@ -44,15 +44,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             Stack(
               alignment: Alignment.center,
               children: [
-                // const SizedBox(
-                //   height: 120,
-                //   width: 120,
-                //   child: CircularProgressIndicator(
-                //     strokeWidth: 10,
-                //     value: 1,
-                //     color: Colors.red,
-                //   ),
-                // ),
                 RotationTransition(
                   turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
                   child: Container(
@@ -60,14 +51,12 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       color: Colors.red,
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
-                        // Where the linear gradient begins and ends
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
-                        // Add one stop for each color. Stops should increase from 0 to 1
                         stops: [0.1, 0.5, 0.7, 0.9],
                         colors: [
                           // Colors are easy thanks to Flutter's Colors class.
-                          Colors.pink,
+                          Color.fromARGB(255, 233, 30, 30),
                           Color.fromARGB(255, 4, 248, 12),
                           Colors.amber,
                           Color.fromARGB(255, 7, 156, 255),
@@ -93,7 +82,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 30),
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 150, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 500, vertical: 20),
               child: Divider(
                 thickness: 2,
                 color: Colors.black,
